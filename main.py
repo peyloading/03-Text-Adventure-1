@@ -20,7 +20,7 @@ def render(game,current):
 def update(response, game, current):
     '''update location if possible'''
     for e in game['rooms'][current]['exits']:
-        if e ['verb'] == response:
+        if e ['verbs'] == response:
             current = e['target']
     return current
 
@@ -32,7 +32,7 @@ def checkInput():
 
 def main():
     game = {}
-    with open('zork.json') as json_file:
+    with open('game.json') as json_file:
         game = json.load(json_file)
     # Your game goes here!
 
