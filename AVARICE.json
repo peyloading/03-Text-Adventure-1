@@ -1,0 +1,382 @@
+{
+  "verbs": [
+    {
+      "v":"up",
+      "map": "up"
+    },
+    {
+      "v": "exits",
+      "map": "exits"
+    },
+    {
+      "v": "quit",
+      "map": "quit"
+    },
+    {
+      "v": "north",
+      "map": "north"
+    },
+    {
+      "v": "n",
+      "map": "north"
+    },
+    {
+      "v": "south",
+      "map": "south"
+    },
+    {
+      "v": "s",
+      "map": "south"
+    },
+    {
+      "v": "east",
+      "map": "east"
+    },
+    {
+      "v": "e",
+      "map": "east"
+    },
+    {
+      "v": "west",
+      "map": "west"
+    },
+    {
+      "v": "w",
+      "map": "west"
+    },
+    {
+      "v": "unlock",
+      "map": "END"
+    }
+  ],
+  "rooms": {
+    "START": {
+      "name": "south entrance",
+      "desc": "you awaken, disoriented, in your local mall. you don't remember falling asleep here. your surroundings are obscured by darkness but you can make out enought that you are able to discern that you are at the south entrance. you immediately tried the door, but it seems to be locked.",
+      "exits": [
+        {
+          "verb": "north",
+          "target": "FC",
+          "condition": ""
+        },
+        {
+          "verb": "south",
+          "target": "SE",
+          "condition": ""
+        },
+        {
+          "verb": "east",
+          "target": "EHE",
+          "condition": ""
+        },
+        {
+          "verb": "west",
+          "target": "EHW",
+          "condition": ""
+        }
+      ],
+      "inventory": []
+    },
+    "IT":{
+      "name": "infinite threads",
+      "desc": "this is infinite threads, a clothing store you frequent. something seems off about the mannequins tonight.",
+      "exits": [
+        {
+          "verb": "east",
+          "target":"EHE",
+          "condition":""
+        },
+        {
+          "verb": "west",
+          "target":"FC",
+          "condition":""
+        },
+        {
+          "verb": "south",
+        "target":"NoExit",
+        "condition":""
+        },
+        {
+          "verb": "north",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": ["mannequins","handwritten note"]
+    },
+    "FC": {
+      "name": "food court",
+      "desc": "this is the food court. to the east, there is a clothing shop called infinite threads, and to the west, there is a bookstore called paper trails.",
+      "exits": [
+        {
+          "verb": "east",
+          "target":"IT",
+          "condition":""
+        },
+        {
+          "verb": "west",
+          "target":"PT",
+          "condition":""
+        },
+        {
+          "verb": "south",
+        "target":"SE",
+        "condition":""
+        },
+        {
+          "verb": "north",
+          "target":"MH",
+          "condition":""
+        }
+      ],
+      "inventory": ["trash can"]
+    },
+    "MH": {
+      "name":"main hall",
+      "desc":"a fountain lies ahead of you. you remember throwing pennies into it as a child. to the west lies archer's grocery and to the east of you lies strange brews tea shop.",
+      "exits":[
+        {
+          "verb":"north",
+          "target":"NE",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"FC",
+          "condition":""
+        },
+        {
+          "verb":"east",
+          "target":"SB",
+          "condition":""
+        },
+        {
+          "verb":"west",
+          "target":"AG",
+          "condition":""
+        }
+      ],
+      "inventory":[]
+    },
+    "EHW": {
+      "name": "employee hallway west",
+      "desc": "this is the employee hallway to the west. the hallway leads to the back entrance of paper trails. there is also an emergency exit, but it appears to be blocked off.",
+      "exits": [
+        {
+          "verb": "north",
+          "target":"PT",
+          "condition":""
+        },
+        {
+          "verb": "east",
+          "target":"SE",
+          "condition":""
+        },
+        {
+          "verb":"west",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": []
+    },
+    "EHE": {
+      "name": "employee hallway east",
+      "desc": "this is the employee hallway to the east. the hallway leads to the back entrance of infinite threads. there is also an emergency exit, but it appears to be blocked off.",
+      "exits":[
+        {
+          "verb":"north",
+          "target":"IT",
+          "condition": ""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"east",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"west",
+          "target":"SE",
+          "condition":""
+        }
+      ],
+      "inventory": []
+    },
+    "PT": {
+      "name": "paper trails bookstore",
+      "desc": "this is the bookstore. you've spent countless hours here reading in your free time, so you know the layout by heart. however, tonight something seems off. you see an unusual arrangement of books on a shelf in front of you.",
+      "exits": [
+        {
+          "verb": "west",
+          "target": "EHW",
+          "condition": ""
+        },
+        {
+          "verb":"east",
+          "target":"FC",
+          "condition":""
+        },
+        {
+          "verb":"north",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": ["book shelf"]
+    },
+    "AG": {
+      "name":"archer's grocery",
+      "desc":"this is archer's grocery. any time you need something, you are likely to find it here. they have everything from normal grocery items to clothing, sports equipment, and more.",
+      "exits": [
+        {
+          "verb":"east",
+          "target":"MH",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"west",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"north",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": ["wrench","kitchen knife","frying pan","golf club"]
+    },
+    "SB": {
+      "name":"strange brews tea shop",
+      "desc":"you enter the tea shop cautiously. as soon as you enter, you notice tea leaves scattered on the floor. shards of glass from a broken tea kettle are spread across the floor.",
+      "exits": [
+        {
+          "verb":"west",
+          "target":"MH",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"north",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"east",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": ["torn tea bags",""]
+    },
+    "SO": {
+      "name":"security office",
+      "desc":"you expected to see an officer here tonight, but the security office seems abandoned. every screen seems to be active though.",
+      "exits": [
+        {
+          "verb":"west",
+          "target":"NE",
+          "condition":""
+        },
+        {
+          "verb":"east",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"north",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": ["surveillance screens"]
+    },
+    "NE": {
+      "name":"north entrance",
+      "desc":"this is the north entrance. you might be able to use this to escape if you can find a key.",
+      "exits": [
+        {
+          "verb":"south",
+          "target":"MH",
+          "condition":""
+        },
+        {
+          "verb":"east",
+          "target":"SO",
+          "condition":""
+        },
+        {
+          "verb":"north",
+          "target":"NoExit",
+          "condition":""
+        },
+        {
+          "verb":"west",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": []
+    },
+    "SE": {
+      "name":"south entrance",
+      "desc":"there is nothing left to do here.",
+      "exits": [
+        {
+          "verb":"north",
+          "target":"FC",
+          "condition":""
+        },
+        {
+          "verb":"east",
+          "target":"EHE",
+          "condition":""
+        },
+        {
+          "verb":"west",
+          "target":"EHW",
+          "condition":""
+        },
+        {
+          "verb":"south",
+          "target":"NoExit",
+          "condition":""
+        }
+      ],
+      "inventory": []
+    }
+  },
+  "END": {
+    "name":"",
+    "desc":""
+  }
+}
