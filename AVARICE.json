@@ -45,8 +45,8 @@
       "map": "west"
     },
     {
-      "v": "unlock",
-      "map": "END"
+      "v":"unlock",
+      "map":"escape"
     }
   ],
   "rooms": {
@@ -102,7 +102,7 @@
           "condition":""
         }
       ],
-      "inventory": ["mannequins","handwritten note"]
+      "inventory": []
     },
     "FC": {
       "name": "food court",
@@ -129,7 +129,7 @@
           "condition":""
         }
       ],
-      "inventory": ["trash can"]
+      "inventory": []
     },
     "MH": {
       "name":"main hall",
@@ -237,7 +237,7 @@
           "condition":""
         }
       ],
-      "inventory": ["book shelf"]
+      "inventory": [""]
     },
     "AG": {
       "name":"archer's grocery",
@@ -264,7 +264,7 @@
           "condition":""
         }
       ],
-      "inventory": ["wrench","kitchen knife","frying pan","golf club"]
+      "inventory": []
     },
     "SB": {
       "name":"strange brews tea shop",
@@ -291,7 +291,7 @@
           "condition":""
         }
       ],
-      "inventory": ["torn tea bags",""]
+      "inventory": ["key"]
     },
     "SO": {
       "name":"security office",
@@ -318,7 +318,7 @@
           "condition":""
         }
       ],
-      "inventory": ["surveillance screens"]
+      "inventory": [""]
     },
     "NE": {
       "name":"north entrance",
@@ -337,7 +337,7 @@
         {
           "verb":"north",
           "target":"NoExit",
-          "condition":""
+          "condition":"key"
         },
         {
           "verb":"west",
@@ -346,6 +346,11 @@
         }
       ],
       "inventory": []
+    },
+    "END":{
+      "name":"the end",
+      "desc":"you were able to safely escape the mall.",
+      "exits":[]
     },
     "SE": {
       "name":"south entrance",
@@ -374,9 +379,5 @@
       ],
       "inventory": []
     }
-  },
-  "END": {
-    "name":"",
-    "desc":""
   }
 }
