@@ -39,7 +39,7 @@ class Player():
     def damage(self,d):
         self.hp = self.hp - d
 
-class Weapon(Item):
+class Weapon:
     def __init__(self,name,desc,damage):
         self.damage = damage
         super().__init__ (name,desc)
@@ -92,7 +92,7 @@ def update(selection,game,current,player,enemy):
         game['rooms'][current]['inventory'] = []
         player.pick_up("key")
 
-    if selection == 'attack' and "orc" in game['rooms'][current]["inventory"]:
+    if selection == 'attack' and "monster" in game['rooms'][current]["enemy"]:
         enemy.damage(player.attack())
         player.damage(enemy.attack())
 
@@ -163,9 +163,9 @@ def main():
         
         current = update(selection,game,current,player,enemy) #depends on current 
         
-        if player.game_over():  #????
+        if player.game_over():  
             break
-        if escape(selection,game,current,player): #?????
+        if escape(selection,game,current,player): 
             break
 
 

@@ -303,11 +303,13 @@
           "condition":""
         }
       ],
-      "inventory": ["key"]
-
-
-
-
+      "inventory": ["key"],
+      "enemy": [
+        {
+        "name":"monster",
+        "desc":"the monster in front of you is horrific. it looms above you."
+        }
+      ]
     },
     "SO": {
       "name":"security office",
