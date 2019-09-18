@@ -16,34 +16,36 @@ logging.basicConfig(format='[%(filename)s:%(lineno)d] %(message)s', level=loggin
 logger = logging.getLogger(__name__)
 
 
-#classes ?????
+# differentiating damage taken from damage received???
 class Player():
     def __init__(self, hp, damage):
         self.hp = hp
-        self.damage = hp
+        self.damage = damage
         self.inventory = []
 
     def is_alive(self):
         return self.hp > 0
 
-    def game_over(self): #when player hp reaches 0, game ends. 
+    def game_over(self): #when player hp reaches 0, game ends 
         if self.hp == 0:
             print('you died! game over.')
             return True
         return False
-    def pick_up(self,item):
+    def pick_up(self,item): #pick up items and put in inventory
         if item not in self.inventory:
             self.inventory.append(item)
     def attack(self):
         return self.damage
     def damage(self,d):
-        self.hp = self.hp - d
+        self.hp = self.hp - d   #??????
 
-class Weapon:
+class Weapon():   #specify weapon as inventory item????????? heeeeelp
     def __init__(self,name,desc,damage):
         self.damage = damage
         super().__init__ (name,desc)
 
+
+# differentiating damage taken from damage received??? 
 class Enemy():
     def __init__ (self, name, desc, hp, damage):
         self.name = name
@@ -54,7 +56,7 @@ class Enemy():
         return self.hp > 0
     def attack(self):
         return self.damage
-    def damage(self,d):
+    def damage(self,d):    #?????
         self.hp -= d
 
 
@@ -71,6 +73,11 @@ def render(game,current):
         print('you see the following items:')
         for i in c['inventory']:
             print('\t{i}'.format(i=i))
+
+    if len(c['enemy']): #print json stuff about enemy
+        print('{name}'.format())
+        for in c['enemy']: #?????
+            print('\n\n{desc}'.format(name=enemy['desc'])) #####?????
 
 
 def getInput(game,current,verbs):
@@ -151,8 +158,7 @@ def main():
 
     player = Player(100,10)
     enemy = Enemy("Troll", "Tall, dark, and hairy", 100, 10)
-    sword = Weapon("sword","", 5)
-    scythe = Weapon("scythe","", 5)
+    weapon = Weapon("sword","", 5) #????
 
     while True:
         render(game,current)
