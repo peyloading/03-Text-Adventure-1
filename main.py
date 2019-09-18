@@ -17,27 +17,34 @@ logger = logging.getLogger(__name__)
 
 
 #classes ?????
-class player():
+class Player():
     def __init__(self, hp, damage):
         self.hp = hp
-        self.damage = damage
+        self.damage = hp
+        self.inventory = []
+
     def is_alive(self):
         return self.hp > 0
 
-class Item():
-    ''' The base class for items'''
-    def __init__ (self, name, desc):
-        self.name = name
-        self.desc = desc
-    def __str__(self):
-        return "{}\n{}".format(self.name,self.desc)
+    def game_over(self): #when player hp reaches 0, game ends. 
+        if self.hp == 0:
+            print('you died! game over.')
+            return True
+        return False
+    def pick_up(self,item):
+        if item not in self.inventory:
+            self.inventory.append(item)
+    def attack(self):
+        return self.damage
+    def damage(self,d):
+        self.hp = self.hp - d
 
-class weapon(Item):
+class Weapon(Item):
     def __init__(self,name,desc,damage):
         self.damage = damage
         super().__init__ (name,desc)
 
-class enemy():
+class Enemy():
     def __init__ (self, name, desc, hp, damage):
         self.name = name
         self.desc = desc
@@ -45,6 +52,13 @@ class enemy():
         self.damage = damage
     def is_alive(self):
         return self.hp > 0
+    def attack(self):
+        return self.damage
+    def damage(self,d):
+        self.hp -= d
+
+
+
 
 # Game loop functions
 def render(game,current):
@@ -69,12 +83,21 @@ of commands '''
     return toReturn
 
 
-def update(selection,game,current,inventory):
+def update(selection,game,current,player,enemy):
     ''' Process the input and update the state of the world '''
+
+
 
     if selection == 'pick up key' and "key" in game['rooms'][current]["inventory"]:
         game['rooms'][current]['inventory'] = []
-        inventory.append("key")
+        player.pick_up("key")
+
+    if selection == 'attack' and "orc" in game['rooms'][current]["inventory"]:
+        enemy.damage(player.attack())
+        player.damage(enemy.attack())
+
+    
+
 
     s = list(selection)[0]  #We assume the verb is the first thing typed
     if s == "":
@@ -92,6 +115,16 @@ def update(selection,game,current,inventory):
     return current
 
 
+def escape(selection,game,current,player):
+    if current == '' and selection=='unlock' and "key" in player.inventory:
+        print('you escaped!')
+        return True
+    return False
+
+
+
+
+
 # Helper functions
 def printExits(game,current):
     e = ", ".join(str(x['verb']) for x in game['rooms'][current]['exits'])
@@ -104,16 +137,8 @@ def normalizeVerb(selection,verbs):
             return v['map']
     return ""
 
-#ending stuff
-def escape(selection,inventory,game,current):
-    if selection=='unlock' and "key" in game['rooms'][current]['inventory']:
-        print('you escaped!')
-        return 
 
 
-def game_over(self): #when player hp reaches 0, game ends. 
-    if self.hp = 0:
-    print('you died! game over.')
 
 #main game functions    
 def main():
@@ -124,7 +149,10 @@ def main():
     current = 'START'
 
 
-    inventory = []
+    player = Player(100,10)
+    enemy = Enemy("Troll", "Tall, dark, and hairy", 100, 10)
+    sword = Weapon("sword","", 5)
+    scythe = Weapon("scythe","", 5)
 
     while True:
         render(game,current)
@@ -133,10 +161,11 @@ def main():
         if selection == 'quit':
             break
         
-        current = update(selection,game,current) #depends on current 
-        if current in game_over():  #????
+        current = update(selection,game,current,player,enemy) #depends on current 
+        
+        if player.game_over():  #????
             break
-        if current in escape(): #?????
+        if escape(selection,game,current,player): #?????
             break
 
 

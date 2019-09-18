@@ -47,6 +47,13 @@
     {
       "v":"unlock",
       "map":"escape"
+    },
+    {
+      "v":"attack"
+
+
+
+
     }
   ],
   "rooms": {
@@ -265,6 +272,11 @@
         }
       ],
       "inventory": []
+
+
+
+
+
     },
     "SB": {
       "name":"strange brews tea shop",
@@ -292,6 +304,10 @@
         }
       ],
       "inventory": ["key"]
+
+
+
+
     },
     "SO": {
       "name":"security office",
@@ -318,7 +334,7 @@
           "condition":""
         }
       ],
-      "inventory": [""]
+      "inventory": []
     },
     "NE": {
       "name":"north entrance",
@@ -336,7 +352,7 @@
         },
         {
           "verb":"north",
-          "target":"NoExit",
+          "target":"END",
           "condition":"key"
         },
         {

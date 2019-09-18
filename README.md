@@ -48,13 +48,7 @@ W -- * -- E
 *********************************************
 *********************************************
 
-Player action key:
-- go, walk, run 
-- open, close, examine, investigate, listen, look
-- north, south, east, west
-- grab, take, pick up
-- attack, defend, hide
-- left, right, forward, back, up, down
+
 
 
 
