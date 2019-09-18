@@ -9,7 +9,6 @@ player finds that it is locked and they are unable
 to open it. The objective of the player is to find 
 the key and escape.
 
-* key words are be highlighted to help the player
 
 Locations // Map:
 - South Entrance (SE)

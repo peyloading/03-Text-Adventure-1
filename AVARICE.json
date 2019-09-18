@@ -237,7 +237,7 @@
           "condition":""
         }
       ],
-      "inventory": [""]
+      "inventory": []
     },
     "AG": {
       "name":"archer's grocery",

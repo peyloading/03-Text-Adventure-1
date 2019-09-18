@@ -15,12 +15,15 @@ assert sys.version_info >= version, "This script requires at least Python {0}.{1
 logging.basicConfig(format='[%(filename)s:%(lineno)d] %(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
+
+#classes ?????
 class player():
     def __init__(self, hp, damage):
         self.hp = hp
         self.damage = damage
     def is_alive(self):
         return self.hp > 0
+
 class Item():
     ''' The base class for items'''
     def __init__ (self, name, desc):
@@ -33,7 +36,6 @@ class weapon(Item):
     def __init__(self,name,desc,damage):
         self.damage = damage
         super().__init__ (name,desc)
-
 
 class enemy():
     def __init__ (self, name, desc, hp, damage):
@@ -102,11 +104,18 @@ def normalizeVerb(selection,verbs):
             return v['map']
     return ""
 
+#ending stuff
 def escape(selection,inventory,game,current):
     if selection=='unlock' and "key" in game['rooms'][current]['inventory']:
         print('you escaped!')
         return 
-        
+
+
+def game_over(self): #when player hp reaches 0, game ends. 
+    if self.hp = 0:
+    print('you died! game over.')
+
+#main game functions    
 def main():
     gameFile = 'AVARICE.json'
     game = {'AVARICE'}
@@ -120,11 +129,15 @@ def main():
     while True:
         render(game,current)
 
-        selection = getInput(game,current,game['verbs'])
+        selection = getInput(game,current,game['verbs']) #player input
         if selection == 'quit':
             break
         
-        current = update(selection,game,current,inventory)
+        current = update(selection,game,current) #depends on current 
+        if current in game_over():  #????
+            break
+        if current in escape(): #?????
+            break
 
 
 #if we are running this from the command line, run main
