@@ -22,27 +22,28 @@ class Player():
         self.hp = hp
         self.damage = damage
         self.inventory = []
+
         
     def game_over(self): #when player hp reaches 0, game ends 
         if self.hp == 0:
             print('you died! game over.')
             return True
         return False
+    
 
-
-    def pick_up(self,item): #pick up items and put in inventory
-        if item not in self.inventory:
-            self.inventory.append(item)
-    def attack(self):
+    def take(self,item):#pick up items and put in inventory
+            if item not in self.inventory:
+                self.inventory.append(item)
+    
+    def attack(self,selection):
+        if selection == 'attack':
+            print('you attacked the monster.')
         return self.damage
     def damageReceived(self,d):
         self.hp = self.hp - d   #??????
 
-class Weapon():   #specify weapon as inventory item????????? heeeeelp
-    def __init__(self,name,desc,damage):
-        self.damage = damage
-        self.name = name
-        self.desc = desc
+
+
 
 
 # differentiating damage taken from damage received??? 
@@ -67,63 +68,80 @@ def render(game,current,enemy):
     ''' Displays the current room, moves, and points '''
     r = game['rooms']
     c = r[current]
-    e = c['enemy']
+    n = c['enemy']
     print('\n\nyou are in the {name}.'.format(name=c['name']))
     print(c['desc'])
+    
+    if len(n): #print json stuff about enemy
+        print('you see a monster. it looms above you, guarding a key.')
+    
     if len(c['inventory']):
         print('you see the following items:')
         for i in c['inventory']:
             print('\t{i}'.format(i=i))
 
-    if len(e): #print json stuff about enemy
-        print('\n\n{name}\n\n{desc}'.format(name=e['name','desc']))
+
 
 
 
 def getInput(game,current,verbs):
     ''' Asks the user for input and normalizes the inputted value. Returns a list 
 of commands '''
-    toReturn = input('\nwhat would you like to do?').strip().lower().split()
-    if (len(toReturn)):
+    selection = input('\nwhat would you like to do?').strip().lower().split()
+    if (len(selection)):
         #assume the first word is the verb
-        toReturn[0] = normalizeVerb(toReturn[0],verbs)
-    return toReturn
+        selection[0] = normalizeVerb(selection[0],verbs)
+    return selection
 
 
 def update(selection,game,current,player,enemy):
     ''' Process the input and update the state of the world '''
 
 
+    s = list(selection)[0]  #We assume the verb is the first thing typed
 
-    if selection == 'pick up key' and "key" in game['rooms'][current]["inventory"]:
+    if s == 'take' and "key" in game['rooms'][current]['inventory']:
         game['rooms'][current]['inventory'] = []
-        player.pick_up("key")
+        player.take("key")
+        print('\n\nyou have picked up the key.')
 
-    if selection == 'attack' and "monster" in game['rooms'][current]["enemy"]:
+
+    if s == 'take' and "weapon" in game['rooms'][current]['inventory']:
+        game['rooms'][current]['inventory'] = []
+        player.take("weapon")
+        print('\n\nyou have picked up the weapon.')
+
+    if s == 'attack' and "weapon" in game['rooms'][current]['inventory'] and "monster" in game['rooms'][current]['enemy']:
         enemy.damage(player.attack())
         player.damage(enemy.attack())
+        print('you attack the monster.')
 
     
-
-
-    s = list(selection)[0]  #We assume the verb is the first thing typed
+    
     if s == "":
         print("\nSorry, I don't understand.")
         return current
-    elif s == 'EXITS':
+    elif s == 'exits':
         printExits(game,current)
         return current
+
+    elif s== 'unlock':
+        escape(selection,game,current, player)
+        print('you escaped!')
+        return selection
+
     else:
         for e in game['rooms'][current]['exits']:
             if s == e['verb'] and e['target'] != 'NoExit':
                 return e['target']
     print("\nyou can't go that way!")
-    
+
     return current
 
 
 def escape(selection,game,current,player):
-    if current == '' and selection=='unlock' and "key" in player.inventory:
+    r = selection
+    if r =='unlock' and "key" in player.inventory():
         print('you escaped!')
         return True
     return False
@@ -158,20 +176,23 @@ def main():
 
     player = Player(100,10)
     enemy = Enemy("","",100, 10)
-    # weapon = Weapon("sword","", 5) #????
+
+
 
     while True:
         render(game,current,enemy)
 
-        selection = getInput(game,current,game['verbs']) #player input
-        if selection == 'quit':
+        selection = getInput(game, current, game['verbs']) #player input
+
+        if selection[0] == 'quit':
             break
         
         current = update(selection,game,current,player,enemy) #depends on current 
         
         if player.game_over():  
             break
-        if escape(selection,game,current,player): 
+        
+        if escape(selection,game,current,player):
             break
 
 

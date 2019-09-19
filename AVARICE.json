@@ -45,9 +45,22 @@
       "map": "west"
     },
     {
+      "v":"pick up",
+      "map":"take"
+    },
+    {
+      "v":"take",
+      "map":"take"
+    },
+    {
+      "v":"attack",
+      "map":"attack"
+    },
+    {
       "v":"unlock",
       "map":"escape"
     }
+
   ],
   "rooms": {
     "START": {
@@ -271,7 +284,7 @@
           "condition":""
         }
       ],
-      "inventory": [],
+      "inventory": ["weapon"],
       "enemy":[]
 
     },
