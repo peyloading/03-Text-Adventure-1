@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 # differentiating damage taken from damage received???
 class Player():
-    def __init__(self, hp, damage):
+    def __init__(self,hp,damage):
         self.hp = hp
         self.damage = damage
         self.inventory = []
@@ -28,6 +28,8 @@ class Player():
             print('you died! game over.')
             return True
         return False
+
+
     def pick_up(self,item): #pick up items and put in inventory
         if item not in self.inventory:
             self.inventory.append(item)
@@ -40,6 +42,7 @@ class Weapon():   #specify weapon as inventory item????????? heeeeelp
     def __init__(self,name,desc,damage):
         self.damage = damage
         self.name = name
+        self.desc = desc
 
 
 # differentiating damage taken from damage received??? 
@@ -53,14 +56,14 @@ class Enemy():
         return self.hp > 0
     def attack(self):
         return self.damage
-    def damage(self,d):    #?????
+    def damageReceived(self,d):    #?????
         self.hp -= d
 
 
 
 
 # Game loop functions
-def render(game,current):
+def render(game,current,enemy):
     ''' Displays the current room, moves, and points '''
     r = game['rooms']
     c = r[current]
@@ -72,10 +75,9 @@ def render(game,current):
         for i in c['inventory']:
             print('\t{i}'.format(i=i))
 
-    if len(c['enemy']): #print json stuff about enemy
-        print('{name}'.format())
-        for [] in e: 
-            print('\n\n{name}{desc}'.format(desc=e['desc'], name=e['name'])) #####?????
+    if len(e): #print json stuff about enemy
+        print('\n\n{name}\n\n{desc}'.format(name=e['name','desc']))
+
 
 
 def getInput(game,current,verbs):
@@ -155,11 +157,11 @@ def main():
 
 
     player = Player(100,10)
-    enemy = Enemy("Troll", "Tall, dark, and hairy", 100, 10)
-    weapon = Weapon("sword","", 5) #????
+    enemy = Enemy("","",100, 10)
+    # weapon = Weapon("sword","", 5) #????
 
     while True:
-        render(game,current)
+        render(game,current,enemy)
 
         selection = getInput(game,current,game['verbs']) #player input
         if selection == 'quit':

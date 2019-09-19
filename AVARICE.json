@@ -82,7 +82,8 @@
           "condition": ""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "IT":{
       "name": "infinite threads",
@@ -109,7 +110,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "FC": {
       "name": "food court",
@@ -136,7 +138,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "MH": {
       "name":"main hall",
@@ -163,7 +166,8 @@
           "condition":""
         }
       ],
-      "inventory":[]
+      "inventory":[],
+      "enemy":[]
     },
     "EHW": {
       "name": "employee hallway west",
@@ -190,7 +194,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "EHE": {
       "name": "employee hallway east",
@@ -217,7 +222,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "PT": {
       "name": "paper trails bookstore",
@@ -244,7 +250,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "AG": {
       "name":"archer's grocery",
@@ -271,11 +278,8 @@
           "condition":""
         }
       ],
-      "inventory": []
-
-
-
-
+      "inventory": [],
+      "enemy":[]
 
     },
     "SB": {
@@ -336,7 +340,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "NE": {
       "name":"north entrance",
@@ -363,7 +368,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     },
     "END":{
       "name":"the end",
@@ -395,7 +401,8 @@
           "condition":""
         }
       ],
-      "inventory": []
+      "inventory": [],
+      "enemy":[]
     }
   }
 }
