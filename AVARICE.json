@@ -47,13 +47,6 @@
     {
       "v":"unlock",
       "map":"escape"
-    },
-    {
-      "v":"attack"
-
-
-
-
     }
   ],
   "rooms": {
