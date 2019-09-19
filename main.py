@@ -22,10 +22,7 @@ class Player():
         self.hp = hp
         self.damage = damage
         self.inventory = []
-
-    def is_alive(self):
-        return self.hp > 0
-
+        
     def game_over(self): #when player hp reaches 0, game ends 
         if self.hp == 0:
             print('you died! game over.')
@@ -36,13 +33,13 @@ class Player():
             self.inventory.append(item)
     def attack(self):
         return self.damage
-    def damage(self,d):
+    def damageReceived(self,d):
         self.hp = self.hp - d   #??????
 
 class Weapon():   #specify weapon as inventory item????????? heeeeelp
     def __init__(self,name,desc,damage):
         self.damage = damage
-        super().__init__ (name,desc)
+        self.name = name
 
 
 # differentiating damage taken from damage received??? 
@@ -67,6 +64,7 @@ def render(game,current):
     ''' Displays the current room, moves, and points '''
     r = game['rooms']
     c = r[current]
+    e = c['enemy']
     print('\n\nyou are in the {name}.'.format(name=c['name']))
     print(c['desc'])
     if len(c['inventory']):
@@ -76,8 +74,8 @@ def render(game,current):
 
     if len(c['enemy']): #print json stuff about enemy
         print('{name}'.format())
-        for in c['enemy']: #?????
-            print('\n\n{desc}'.format(name=enemy['desc'])) #####?????
+        for [] in e: 
+            print('\n\n{name}{desc}'.format(desc=e['desc'], name=e['name'])) #####?????
 
 
 def getInput(game,current,verbs):
