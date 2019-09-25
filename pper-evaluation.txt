@@ -1,0 +1,37 @@
+Name: Peyton Conner
+Date: 9.25.19
+Project: Text Adventure
+Peer's repository: https://github.com/peyloading/03-Text-Adventure-1.git
+
+
+
+What is something you learned by reviewing your peer's project?
+
+ 
+
+What is something you saw in your peer's project that you would like to apply to your own programming projects?
+I liked that they added a map to their readme! I thought it was a cute idea and it helped me go through the game easier.
+ 
+
+What suggestions would you have for your peer to improve his/her code?
+
+ 
+
+What could have been clearer or better commented?
+
+ 
+
+Was there anything in the code that was confusing to you? If so, what?
+
+ 
+
+Does the repository contain an appropriate LICENSE?
+
+ 
+
+What is something he/she could add to the README.md to make it more descriptive?
+
+ 
+
+Pay a compliment to your peer based on the quality of his/her code.
+
