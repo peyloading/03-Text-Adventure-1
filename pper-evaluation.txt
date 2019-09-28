@@ -6,32 +6,20 @@ Peer's repository: https://github.com/peyloading/03-Text-Adventure-1.git
 
 
 What is something you learned by reviewing your peer's project?
-
- 
-
+I learned that you can add an inventory system to your game. 
 What is something you saw in your peer's project that you would like to apply to your own programming projects?
 I liked that they added a map to their readme! I thought it was a cute idea and it helped me go through the game easier.
- 
-
 What suggestions would you have for your peer to improve his/her code?
-
- 
-
+I would clean up the way the exits display. When using exits to try and display the possible paths, but it would list the same directions each time
+even if they weren't availiable to actually use.
 What could have been clearer or better commented?
-
- 
-
+The possible exits could have been more clearly displayed.
 Was there anything in the code that was confusing to you? If so, what?
-
- 
-
+Not really, I think I understood it all!
 Does the repository contain an appropriate LICENSE?
-
- 
-
+Yes.
 What is something he/she could add to the README.md to make it more descriptive?
-
- 
-
+Nothing, really! I thought the readme was super descriptive and also really creative.
 Pay a compliment to your peer based on the quality of his/her code.
-
+Hi, your game is really good! I really enjoyed the exploring the map and piecing together the plot! I think it was awesome that you implemented 
+an inventory system because me and all my friends were super stumped on. I hope to get to play more of your games later on in the semester!
